@@ -1,5 +1,5 @@
 // Rule 07 - ERR00-J: Do not suppress or ignore checked exceptions
-// The file error is ignored.
+// Let the caller handle the file error.
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -7,11 +7,7 @@ import java.nio.file.Path;
 
 public class R07_ERR00_J {
     public static String readConfig(Path path) throws IOException {
-        try {
-            return Files.readString(path, StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            return "";
-        }
+        return Files.readString(path, StandardCharsets.UTF_8);
     }
 
     public static void main(String[] args) {
