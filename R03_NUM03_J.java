@@ -1,12 +1,12 @@
 // Rule 03 - NUM03-J: Use integer types that can fully represent the possible range of unsigned data
-// Some unsigned numbers do not fit in an int.
+// Use a long for the unsigned number.
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 
 public class R03_NUM03_J {
-    public static int getInteger(DataInputStream input) throws IOException {
-        return input.readInt();
+    public static long getInteger(DataInputStream input) throws IOException {
+        return input.readInt() & 0xFFFFFFFFL;
     }
 
     public static void main(String[] args) throws IOException {
