@@ -1,12 +1,12 @@
 // Rule 05 - OBJ05-J: Do not return references to private mutable class members
-// The returned Date can change the private date.
+// Return a copy of the date.
 import java.util.Date;
 
 public class R05_OBJ05_J {
     private final Date date = new Date(1000L);
 
     public Date getDate() {
-        return date;
+        return new Date(date.getTime());
     }
 
     public static void main(String[] args) {
