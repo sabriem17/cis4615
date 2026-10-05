@@ -1,10 +1,10 @@
 // Rule 49 - MSC02-J: Generate strong random numbers
-// The same seed gives the same random number.
-import java.util.Random;
+// Use SecureRandom for the random number.
+import java.security.SecureRandom;
 
 public class R49_MSC02_J {
     public static int getNumber() {
-        Random random = new Random(123L);
+        SecureRandom random = new SecureRandom();
         return random.nextInt();
     }
 
