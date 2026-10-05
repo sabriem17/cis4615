@@ -1,12 +1,14 @@
 // Rule 02 - EXP00-J: Do not ignore values returned by methods
-// The delete result is ignored.
+// Check whether the file was deleted.
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
 public class R02_XP00_J {
     public static void deleteFile(File someFile) throws IOException {
-        someFile.delete();
+        if (!someFile.delete()) {
+            throw new IOException("File could not be deleted");
+        }
     }
 
     public static void main(String[] args) throws IOException {
