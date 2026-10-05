@@ -1,5 +1,5 @@
 // Rule 10 - THI00-J: Do not invoke Thread.run()
-// run() does not start a new thread.
+// Use start() to start the thread.
 public class R10_THI00_J implements Runnable {
     public void run() {
         System.out.println("Running in: " + Thread.currentThread().getName());
@@ -7,7 +7,7 @@ public class R10_THI00_J implements Runnable {
 
     public static Thread startWorker() {
         Thread worker = new Thread(new R10_THI00_J(), "worker");
-        worker.run();
+        worker.start();
         return worker;
     }
 
